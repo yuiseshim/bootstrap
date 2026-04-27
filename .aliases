@@ -1,0 +1,109 @@
+# ------------------------------------------------------------------------------
+# ~/.aliases
+# Common aliases (bash / zsh)
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# 1. OS-specific color settings
+# ------------------------------------------------------------------------------
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# ------------------------------------------------------------------------------
+# 2. File operations
+# ------------------------------------------------------------------------------
+
+alias cp='cp -iv'  # confirm overwrite
+alias mv='mv -iv'
+alias mkdir='mkdir -pv'
+
+# ------------------------------------------------------------------------------
+# 3. ls / directory listing
+# ------------------------------------------------------------------------------
+
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -la'
+
+alias ldir='ls -al | grep ^d'  # list directories only
+
+# ------------------------------------------------------------------------------
+# 4. Navigation
+# ------------------------------------------------------------------------------
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+alias .6='cd ../../../../../..'
+
+alias cd..='cd ..'  # typo rescue
+alias ~='cd ~'
+
+# ------------------------------------------------------------------------------
+# 5. System / utility
+# ------------------------------------------------------------------------------
+
+alias c='clear'
+alias h='history'
+alias ut='uptime'
+
+alias ip='curl -s icanhazip.com'  # public IP
+alias globalip='curl -s inet-ip.info'
+
+alias numfiles='ls -1 | wc -l'  # count files (non-hidden)
+
+alias edithosts='sudo nano /etc/hosts'
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'  # flush DNS
+fi
+
+# ------------------------------------------------------------------------------
+# 6. Finder / macOS
+# ------------------------------------------------------------------------------
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias f='open .'  # open current dir in Finder
+fi
+
+# ------------------------------------------------------------------------------
+# 7. Development
+# ------------------------------------------------------------------------------
+
+# Git
+alias gs='git status'
+alias gc='git commit'
+alias gpl='git pull'
+alias gpu='git push'
+alias gl='git log --oneline --graph --decorate'  # compact log
+
+# Python
+alias pip_update="pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U"
+
+# Editor
+alias e='emacs -nw'
+
+# ------------------------------------------------------------------------------
+# 8. Homebrew
+# ------------------------------------------------------------------------------
+
+alias brew_upgrade='brew update && brew upgrade && brew cleanup && brew autoremove'
+alias brew_cask_upgrade='brew upgrade --cask --greedy'
+
+# ------------------------------------------------------------------------------
+# 9. Optional (commented out)
+# ------------------------------------------------------------------------------
+
+# alias jnote='jupyter notebook'
+
+# mcd() { mkdir -p "$1" && cd "$1"; }
