@@ -20,13 +20,14 @@ else
 fi
 
 echo '=== Update shell profile for pyenv ==='
-touch "$PROFILE_FILE"
-append_if_not_exists '' "$PROFILE_FILE"
-append_if_not_exists "# $(date '+%Y/%m/%d') H.Seshime" "$PROFILE_FILE"
-append_if_not_exists '## Setting pyenv, pyenv-virtualenv ##' "$PROFILE_FILE"
-append_if_not_exists 'export PYENV_ROOT="$HOME/.pyenv"' "$PROFILE_FILE"
-append_if_not_exists 'export PATH="$PYENV_ROOT/bin:$PATH"' "$PROFILE_FILE"
-append_if_not_exists 'eval "$(pyenv init -)"' "$PROFILE_FILE"
+# .profile already contains the pyenv PATH/bootstrap settings.
+# touch "$PROFILE_FILE"
+# append_if_not_exists '' "$PROFILE_FILE"
+# append_if_not_exists "# $(date '+%Y/%m/%d') H.Seshime" "$PROFILE_FILE"
+# append_if_not_exists '## Setting pyenv, pyenv-virtualenv ##' "$PROFILE_FILE"
+# append_if_not_exists 'export PYENV_ROOT="$HOME/.pyenv"' "$PROFILE_FILE"
+# append_if_not_exists 'export PATH="$PYENV_ROOT/bin:$PATH"' "$PROFILE_FILE"
+# append_if_not_exists 'eval "$(pyenv init -)"' "$PROFILE_FILE"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -40,7 +41,8 @@ else
 fi
 
 echo '=== Update shell profile for pyenv-virtualenv ==='
-append_if_not_exists 'eval "$(pyenv virtualenv-init -)"' "$PROFILE_FILE"
+# .profile/.bashrc already handle shell initialization for pyenv.
+# append_if_not_exists 'eval "$(pyenv virtualenv-init -)"' "$PROFILE_FILE"
 
 eval "$(pyenv virtualenv-init -)"
 

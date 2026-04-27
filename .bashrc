@@ -69,7 +69,13 @@ if [[ -z "${debian_chroot:-}" && -r /etc/debian_chroot ]]; then
   debian_chroot="$(cat /etc/debian_chroot)"
 fi
 
-PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[00m\]\$ '
+
+# Show the tmux session name in the prompt when running inside tmux.
+if [[ -n "${TMUX:-}" ]] && command -v tmux >/dev/null 2>&1; then
+  TMUX_SESSION_NAME="$(tmux display-message -p '#S' 2>/dev/null)"
+  PS1="\[\e[01;35m\][${TMUX_SESSION_NAME}]\[\e[00m\] $PS1"
+fi
 
 # If this is an xterm, set the title to user@host:dir
 case "$TERM" in

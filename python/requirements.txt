@@ -1,0 +1,79 @@
+accelerate
+albumentations
+awscli
+bash_kernel
+beautifulsoup4
+boto3
+boxsdk
+cython
+datasets
+django
+einops
+gcsfs
+# gensim
+gitpython
+google-auth
+google-cloud-aiplatform
+google-cloud-bigquery
+google-cloud-logging
+google-cloud-secret-manager
+google-cloud-storage
+google-cloud-vision
+holoviews
+huggingface-hub
+imagehash
+ipywidgets
+janome
+julia
+jupyterlab
+librosa
+lightning
+matplotlib
+memory-profiler
+nltk
+numpy
+opencv-python
+openpyxl
+pandas
+pandas-gbq
+pillow
+plotly
+psd-tools
+pydub
+pytd
+python-pptx
+s3fs
+safetensors
+scikit-image
+scikit-learn
+scipy
+seaborn
+selenium
+sip
+soundfile
+spacy
+statsmodels
+sympy
+tables
+tabulate
+# tensorboard
+tensorboardx
+# tensorflow
+# tensorflow-hub
+# tensorflow-probability
+timeout-decorator
+timm
+tokenizers
+tqdm
+transformers
+wandb
+xlrd
+xlsxwriter
+
+# Install PyTorch packages separately for your CUDA/CPU environment.
+# torch
+# torchaudio
+# torchinfo
+# torchmetrics
+# torchtext
+# torchvision
