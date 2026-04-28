@@ -8,7 +8,6 @@ portaudio
 hdf5
 mecab
 mecab-jumandic
-mecab-ko-dic
 mecab-unidic-extended
 mecab-ipadic
 mecab-unidic
