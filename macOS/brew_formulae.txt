@@ -11,7 +11,6 @@ mecab-jumandic
 mecab-ko-dic
 mecab-unidic-extended
 mecab-ipadic
-mecab-ko
 mecab-unidic
 jumanpp
 pandoc
