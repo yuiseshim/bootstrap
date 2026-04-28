@@ -53,7 +53,7 @@ brew update
 # ------------------------------------------------------------------------------
 
 echo '==> Installing formulae...'
-while IFS= read -r pkg || [[ -n "$pkg" ]]; do
+while IFS= read -r pkg <&3 || [[ -n "$pkg" ]]; do
   # 空行・コメントをスキップ
   [[ -z "$pkg" || "$pkg" =~ ^# ]] && continue
 
@@ -61,27 +61,27 @@ while IFS= read -r pkg || [[ -n "$pkg" ]]; do
     echo "  - already installed: $pkg"
   else
     echo "  - installing: $pkg"
-    brew install "$pkg"
+    brew install "$pkg" </dev/null
   fi
-done < "$FORMULAE_FILE"
+done 3< "$FORMULAE_FILE"
 
 # ------------------------------------------------------------------------------
 # install casks
 # ------------------------------------------------------------------------------
 
 echo '==> Installing casks...'
-while IFS= read -r pkg || [[ -n "$pkg" ]]; do
+while IFS= read -r pkg <&3 || [[ -n "$pkg" ]]; do
   [[ -z "$pkg" || "$pkg" =~ ^# ]] && continue
 
   if brew list --cask "$pkg" >/dev/null 2>&1; then
     echo "  - already installed: $pkg"
   else
     echo "  - installing: $pkg"
-    brew install --cask "$pkg" || {
+    brew install --cask "$pkg" </dev/null || {
       echo "  - skipped (failed): $pkg"
     }
   fi
-done < "$CASKS_FILE"
+done 3< "$CASKS_FILE"
 
 echo '==> Cleanup...'
 brew cleanup
