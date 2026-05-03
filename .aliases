@@ -97,9 +97,10 @@ alias e='emacs -nw'
 # 8. Homebrew
 # ------------------------------------------------------------------------------
 
-alias brew_upgrade='brew update && brew upgrade && brew cleanup && brew autoremove'
-alias brew_cask_upgrade='brew upgrade --cask --greedy'
-
+# Ask for sudo once before running brew upgrades, so casks requiring privileges only prompt once.
+alias brew_upgrade='sudo -v && brew update && brew upgrade && brew cleanup && brew autoremove && sudo -k'
+alias brew_cask_upgrade='sudo -v && brew upgrade --cask --greedy && sudo -k'
+alias brew_upgrade_all='brew_upgrade && brew_cask_upgrade'
 # ------------------------------------------------------------------------------
 # 9. Optional (commented out)
 # ------------------------------------------------------------------------------
