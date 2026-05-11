@@ -5,6 +5,7 @@ svn
 pyenv
 pyenv-virtualenv
 portaudio
+gh
 hdf5
 mecab
 mecab-jumandic
