@@ -11,6 +11,7 @@ export TZ='Asia/Tokyo'
 export LANG='ja_JP.UTF-8'
 export LESSCHARSET='utf-8'
 export EDITOR='emacs'
+export GDRIVE="$HOME/GoogleDrive/マイドライブ"
 
 # ------------------------------------------------------------------------------
 # 2. PATH settings
