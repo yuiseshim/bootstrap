@@ -25,6 +25,7 @@ pyqt
 qt
 swig
 svn
+tcl-tk
 tree
 wget
 xz
