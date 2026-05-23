@@ -32,6 +32,7 @@ matplotlib
 memory-profiler
 nltk
 numpy
+nuscenes-devkit
 opencv-python
 openpyxl
 pandas
