@@ -12,10 +12,10 @@ tar -xf $FILE_NAME
 
 ## ストレージ: ディスクの作成
 ```
-gcloud compute disks create dev-disk-1tb \
+gcloud compute disks create dev-disk-500gb \
     --project=mycomputer-465723 \
     --type=pd-balanced \
-    --size=1000GB \
+    --size=500GB \
     --zone=asia-northeast1-b \
 && \
 gcloud compute resource-policies create snapshot-schedule default-schedule-1 \
