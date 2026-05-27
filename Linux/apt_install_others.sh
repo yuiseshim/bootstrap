@@ -19,6 +19,19 @@ echo '=== Fix dpkg state (if needed) ==='
 wait_for_apt
 sudo dpkg --configure -a
 
+echo '=== Install base packages ==='
+wait_for_apt
+sudo apt-get install -y \
+  emacs \
+  git \
+  curl \
+  wget \
+  tmux \
+  htop \
+  unzip \
+  zip \
+  build-essential
+
 echo '=== Install SKK related packages ==='
 wait_for_apt
 sudo apt-get install -y \
@@ -32,4 +45,4 @@ sudo apt-get install -y \
   mlterm-im-skk \
   uim-skk
 
-echo '=== Done: other packages installed ==='
+echo '=== Done: packages installed ==='
