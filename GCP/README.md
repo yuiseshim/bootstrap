@@ -34,6 +34,11 @@ gcloud compute disks add-resource-policies dev-disk-500gb \
 
 ## VMインスタンス: インスタンスの作成
 ```
+gcloud compute instances create l4-g2 --project=mycomputer-465723 --zone=asia-northeast1-b --machine-type=g2-standard-32 --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default --metadata=enable-osconfig=TRUE --maintenance-policy=TERMINATE --provisioning-model=STANDARD --service-account=193556165326-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/trace.append --accelerator=count=1,type=nvidia-l4 --create-disk=auto-delete=yes,boot=yes,device-name=l4-g2,disk-resource-policy=projects/mycomputer-465723/regions/asia-northeast1/resourcePolicies/default-schedule-1,image=projects/ubuntu-os-cloud/global/images/ubuntu-2404-noble-amd64-v20260517,mode=rw,size=510,type=pd-balanced --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --labels=goog-ops-agent-policy=v2-template-1-7-0,goog-ec-src=vm_add-gcloud --reservation-affinity=any && printf 'agentsRule:\n  packageState: installed\n  version: latest\ninstanceFilter:\n  inclusionLabels:\n  - labels:\n      goog-ops-agent-policy: v2-template-1-7-0\n' > config.yaml && gcloud compute instances ops-agents policies create goog-ops-agent-v2-template-1-7-0-asia-northeast1-b --project=mycomputer-465723 --zone=asia-northeast1-b --file=config.yaml
+```
+
+
+```
 gcloud compute instances create test-instance-e2-medium \
     --project=mycomputer-465723 \
     --zone=us-central1-c \
