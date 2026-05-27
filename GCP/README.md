@@ -10,6 +10,27 @@ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$FILE_NANE
 tar -xf $FILE_NAME
 ```
 
+## ストレージ: ディスクの作成
+```
+gcloud compute disks create dev-disk-1tb \
+    --project=mycomputer-465723 \
+    --type=pd-balanced \
+    --size=1000GB \
+    --zone=asia-northeast1-b \
+&& \
+gcloud compute resource-policies create snapshot-schedule default-schedule-1 \
+    --project=mycomputer-465723 \
+    --region=asia-northeast1 \
+    --max-retention-days=14 \
+    --on-source-disk-delete=keep-auto-snapshots \
+    --daily-schedule \
+    --start-time=22:00 \
+&& \
+gcloud compute disks add-resource-policies dev-disk-1tb \
+    --project=mycomputer-465723 \
+    --zone=asia-northeast1-b \
+    --resource-policies=projects/mycomputer-465723/regions/asia-northeast1/resourcePolicies/default-schedule-1
+```
 
 ## VMインスタンス: インスタンスの作成
 ```
