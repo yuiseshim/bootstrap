@@ -99,8 +99,8 @@ alias e='emacs -nw'
 
 # Ask for sudo once before running brew upgrades, so casks requiring privileges only prompt once.
 alias brew_upgrade='sudo -v && brew update && brew upgrade && brew cleanup && brew autoremove'
-alias brew_cask_upgrade='sudo -v && brew upgrade --cask --greedy'
-alias brew_upgrade_all='sudo -v && brew update && brew upgrade && brew cleanup && brew autoremove && brew upgrade --cask --greedy && sudo -k'
+alias brew_cask_upgrade='sudo -v && brew upgrade --cask --greedy && brew cleanup && brew autoremove'
+alias brew_upgrade_all='sudo -v && brew update && brew upgrade && brew cleanup && brew autoremove && brew upgrade --cask --greedy'
 # ------------------------------------------------------------------------------
 # 9. Optional (commented out)
 # ------------------------------------------------------------------------------
