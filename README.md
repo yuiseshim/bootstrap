@@ -13,10 +13,10 @@ ssh $HOST 'cat ~/.ssh/id_rsa.pub' | pbcopy
 ```
 cat > ~/.ssh/config << EOF
 Host $HOST
-    HostName HNAME
-    User UNAME
-    IdentityFile ~/.ssh/id_ed25519
-    StrictHostKeyChecking accept-new
+  HostName HNAME
+  User UNAME
+  IdentityFile ~/.ssh/id_ed25519
+  StrictHostKeyChecking accept-new
 EOF
 chmod 600 ~/.ssh/config
 ```
