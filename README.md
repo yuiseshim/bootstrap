@@ -9,7 +9,7 @@ ssh-keygen -t ed25519 -C $EMAIL -f ~/.ssh/id_ed25519 -N
 ssh $HOST 'cat ~/.ssh/id_rsa.pub' | pbcopy
 ```
 
-### ~/.ssh/config
+### Config追記 `~/.ssh/config`
 cat > ~/.ssh/config << EOF
 Host $HOST
     HostName HNAME
