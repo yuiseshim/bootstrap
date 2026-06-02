@@ -34,7 +34,8 @@ sudo apt-get install -y \
   ca-certificates \
   unzip \
   zip \
-  tree
+  tree \
+  ubuntu-drivers-common
 
 echo '=== Install libraries for building Python with pyenv ==='
 wait_for_apt
