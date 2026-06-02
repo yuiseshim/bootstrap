@@ -23,7 +23,6 @@ echo '=== Install base packages ==='
 wait_for_apt
 sudo apt-get install -y \
   emacs \
-  xclip \
   git \
   curl \
   wget \
