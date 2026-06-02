@@ -3,13 +3,15 @@
 ## Nvidiaデバイスの存在有無
 ```
 $ lspci | grep -i nvidia
-(例) 00:03.0 3D controller: NVIDIA Corporation AD104GL [L4] (rev a1)
+(例)
+00:03.0 3D controller: NVIDIA Corporation AD104GL [L4] (rev a1)
 ```
 
 ## 認識しているデバイス一覧
 ```
 $ sudo lshw -c display
-(例)  *-display UNCLAIMED       
+(例)
+*-display UNCLAIMED       
        description: 3D controller
        product: AD104GL [L4]
        vendor: NVIDIA Corporation
@@ -26,7 +28,8 @@ $ sudo lshw -c display
 ### 推奨Nvidia-driver確認
 ```
 $ ubuntu-drivers devices
-(例) udevadm hwdb is deprecated. Use systemd-hwdb instead.
+(例)
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
 udevadm hwdb is deprecated. Use systemd-hwdb instead.
 udevadm hwdb is deprecated. Use systemd-hwdb instead.
 udevadm hwdb is deprecated. Use systemd-hwdb instead.
