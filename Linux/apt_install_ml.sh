@@ -46,7 +46,9 @@ sudo apt-get install -y \
   libbz2-dev \
   llvm \
   libncurses5-dev \
-  libncursesw5-dev
+  libncursesw5-dev \
+  liblzma-dev \ 
+  xz-utils
 
 echo '=== Install libraries often needed in ML / CV / media workflows ==='
 wait_for_apt
