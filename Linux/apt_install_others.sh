@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
+# ロケール設定
+sudo apt install -y locales
+sudo locale-gen ja_JP.UTF-8
+sudo update-locale LANG=ja_JP.UTF-8
+
 wait_for_apt() {
   echo '=== Waiting for apt/dpkg lock to be released ==='
   while sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 \
