@@ -10,6 +10,7 @@ ssh $HOST 'cat ~/.ssh/id_rsa.pub' | pbcopy
 ```
 
 ### Config追記 `~/.ssh/config`
+```
 cat > ~/.ssh/config << EOF
 Host $HOST
     HostName HNAME
@@ -18,3 +19,4 @@ Host $HOST
     StrictHostKeyChecking accept-new
 EOF
 chmod 600 ~/.ssh/config
+```
