@@ -61,6 +61,9 @@ driver   : nvidia-driver-580-server - distro non-free
 driver   : xserver-xorg-video-nouveau - distro free builtin
 ```
 
+```
+$ sudo apt install -y nvidia-driver-595-open nvidia-utils-595 #cuda13.2
+```
 
 ### Cuda Toolkitインストール例
 - PyTorchの必要ないがFlashAttensionには必要となる
