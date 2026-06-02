@@ -62,7 +62,7 @@ driver   : xserver-xorg-video-nouveau - distro free builtin
 ```
 
 ```
-$ sudo apt install -y nvidia-driver-595-open nvidia-utils-595 #cuda13.2
+$ sudo apt install -y nvidia-driver-595-open nvidia-utils-595
 ```
 
 ### Cuda Toolkitインストール例
@@ -74,6 +74,7 @@ $ sudo apt update
 
 # cuda-toolkitインストール
 sudo apt install -y cuda-toolkit-13-2
+sudo apt install -y cuda-toolkit-13-0 # Cuda 13.0の場合
 ```
 
 #### .bashrcに追記
