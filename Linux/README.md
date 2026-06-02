@@ -1,15 +1,32 @@
 # Linux
 
-## GPU確認
+## Nvidiaデバイスの存在有無
 ```
 $ lspci | grep -i nvidia
 (例) 00:03.0 3D controller: NVIDIA Corporation AD104GL [L4] (rev a1)
 ```
 
+## 認識しているデバイス一覧
+```
+$ sudo lshw -c display
+(例)  *-display UNCLAIMED       
+       description: 3D controller
+       product: AD104GL [L4]
+       vendor: NVIDIA Corporation
+       physical id: 3
+       bus info: pci@0000:00:03.0
+       version: a1
+       width: 64 bits
+       clock: 33MHz
+       capabilities: msix pm bus_master cap_list
+       configuration: latency=0
+       resources: iomemory:280-27f iomemory:300-2ff memory:80000000-80ffffff memory:2800000000-2fffffffff memory:3000000000-3001ffffff
+```
+
 ### 推奨Nvidia-driver確認
 ```
 $ ubuntu-drivers devices
-udevadm hwdb is deprecated. Use systemd-hwdb instead.
+(例) udevadm hwdb is deprecated. Use systemd-hwdb instead.
 udevadm hwdb is deprecated. Use systemd-hwdb instead.
 udevadm hwdb is deprecated. Use systemd-hwdb instead.
 udevadm hwdb is deprecated. Use systemd-hwdb instead.
