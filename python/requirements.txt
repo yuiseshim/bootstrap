@@ -5,6 +5,7 @@ bash_kernel
 beautifulsoup4
 boto3
 boxsdk
+codetiming
 cython
 datasets
 django
@@ -21,6 +22,7 @@ google-cloud-storage
 google-cloud-vision
 holoviews
 huggingface-hub
+hydra-core
 imagehash
 ipywidgets
 janome
@@ -36,6 +38,7 @@ opencv-python
 openpyxl
 pandas
 pandas-gbq
+peft
 plotly
 psd-tools
 pydub
@@ -48,6 +51,7 @@ scikit-learn
 scipy
 seaborn
 selenium
+sentencepiece
 sip
 soundfile
 spacy
@@ -57,14 +61,15 @@ tables
 tabulate
 # tensorboard
 tensorboardx
+tensordict
 # tensorflow
 # tensorflow-hub
 # tensorflow-probability
 timeout-decorator
 timm
 tokenizers
-transformers
 wandb
+xformers
 xlrd
 xlsxwriter
 
@@ -75,3 +80,6 @@ xlsxwriter
 # torchmetrics
 # torchtext
 # torchvision
+# torch-tb-profiler
+# transformers
+# vllm
