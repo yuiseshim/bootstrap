@@ -60,3 +60,25 @@ driver   : nvidia-driver-595 - distro non-free
 driver   : nvidia-driver-580-server - distro non-free
 driver   : xserver-xorg-video-nouveau - distro free builtin
 ```
+
+
+### Cuda Toolkitインストール例
+```
+$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
+$ sudo dpkg -i cuda-keyring_1.1-1_all.deb
+$ sudo apt update
+
+# cuda-toolkitインストール
+sudo apt install -y cuda-toolkit-13-2
+```
+
+#### .bashrcに追記
+```
+echo '' >> ~/.bashrc
+echo "# $(date '+%Y/%m/%d') $USER" >> ~/.bashrc
+echo '## CUDA Toolkit ##' >> ~/.bashrc
+echo 'export PATH=/usr/local/cuda/bin:$PATH' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+
+source ~/.bashrc
+```
