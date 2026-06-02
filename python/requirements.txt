@@ -83,3 +83,4 @@ xlsxwriter
 # torch-tb-profiler
 # transformers
 # vllm
+# flash-attn --no-build-isolation
