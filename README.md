@@ -12,8 +12,8 @@ ssh $HOST 'cat ~/.ssh/id_ed25519.pub' | pbcopy
 ```
 cat > ~/.ssh/config << EOF
 Host $HOST
-  HostName HNAME
-  User UNAME
+  HostName $IP
+  User $USER
   IdentityFile ~/.ssh/id_ed25519
   StrictHostKeyChecking accept-new
 EOF
