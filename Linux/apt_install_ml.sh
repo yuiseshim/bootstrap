@@ -35,6 +35,8 @@ sudo apt-get install -y \
   unzip \
   zip \
   tree \
+  nodejs \ 
+  npm \
   ubuntu-drivers-common
 
 echo '=== Install libraries for building Python with pyenv ==='
