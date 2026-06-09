@@ -37,6 +37,7 @@ sudo apt-get install -y \
   tree \
   nodejs \ 
   npm \
+  golang \
   ubuntu-drivers-common
 
 echo '=== Install libraries for building Python with pyenv ==='
