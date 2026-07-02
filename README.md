@@ -2,7 +2,7 @@
 ```
 # サーバ側
 # RSAではなくEd25519を使用（より安全で新しい標準）
-ssh-keygen -t ed25519 -C $EMAIL -f ~/.ssh/id_ed25519 -N ""
+ssh-keygen -t ed25519 -C $EMAIL
 
 # クライアント側
 ssh $HOST 'cat ~/.ssh/id_ed25519.pub' | pbcopy
