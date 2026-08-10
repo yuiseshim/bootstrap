@@ -3,6 +3,7 @@ albumentations
 awscli
 bash_kernel
 beautifulsoup4
+bitsandbytes
 boto3
 boxsdk
 codetiming
