@@ -22,6 +22,7 @@ echo "==> Setting screenshot location: $SCREENSHOT_DIR"
 
 mkdir -p "$SCREENSHOT_DIR"
 defaults write com.apple.screencapture location "$SCREENSHOT_DIR"
+defaults write com.apple.screencapture type jpg
 
 # ------------------------------------------------------------------------------
 # 2. Finder settings
