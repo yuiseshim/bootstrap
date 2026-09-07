@@ -1,0 +1,166 @@
+\documentclass[dvipdfmx]{beamer}
+%\usefonttheme{professionalfonts}
+
+\setbeamercolor{block body alerted}{bg=red!10!white, fg=black}
+%\setbeamertemplate{background}[grid][step=3mm]
+\setbeamercolor{page number in head/foot}{fg=yellow}
+\setbeamerfont{page number in head/foot}{family=\ttfamily,size=\tiny}
+\usepackage{bxdpx-beamer}
+
+\usetheme{%
+	%AnnArbor%
+	%Antibes%
+	%Bergen%
+	%Berkeley%
+	%Berlin%
+	%Boadilla%
+	%boxes%
+	%CambridgeUS%
+	%Copenhagen%
+	%Darmstadt%
+	%default%
+	%Dresden%
+	%Frankfurt%
+	%Goettingen%
+	%Hannover%
+	%Ilmenau%
+	%JuanLesPins%
+	%Luebeck%
+	%Madrid%
+	%Malmoe%
+	%Marburg%
+	%Montpellier%
+	PaloAlto%
+	%Pittsburgh%
+	%Rochester%
+	%Singapore%
+	%Szeged%
+	%Warsaw%
+}
+\usecolortheme{%
+	%albatross%
+	%beaver%
+	%beetle%
+	%crane%
+	default%
+	%dolphin%
+	%dove%
+	%fly%
+	%lily%
+	%orchid%
+	%rose%
+	%seagull%
+	%seahorse%
+	%sidebartab%
+	%structure%
+	%whale%
+	%wolverine%
+}
+
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{theme/mycolors}
+\usepackage{theme/mystyle}
+
+\def\pagewidth{128mm}
+\def\pageheight{128mm}
+\def\pagescale{0.1}
+
+\usebackgroundtemplate{
+	\includegraphics[
+		clip, 
+		scale=\pagescale, 
+		width=\pagewidth, 
+		height=\pageheight
+	]{image/blackwoodstyle.jpg}
+}
+%オプション	意味
+%width	幅
+%height	高さ
+%scale	拡大縮小率
+%angle	回転角
+%clip	はみ出しを切り取る
+
+\title{Talk on the Subject}
+\subtitle{What this is about}
+\author{Author Name}
+\institute{@ the Institute}
+\date{\today}
+
+%\setbeamertemplate{footline}[frame number] 
+%\setbeamertemplate{caption}[numbered]
+%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=gray!15] 
+
+
+\addtobeamertemplate{background canvas}{}{%
+  \confidentialstamp
+}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+ 	\tableofcontents[]
+ 	%\tableofcontents[pausesections]
+ 	%\tableofcontents[currentsection]
+\end{frame}
+
+\section{Introduction}
+\subsection{A subsection}
+\begin{frame}{Very Informative Title}
+	\begin{itemize}
+		\item First thing to say. 
+		\item There is more. 
+		\item Another short point.
+		\item ああああ
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+ ここは1コマ目から表示される
+ \onslide<2-3>
+ ここは2-3コマ目に表示される
+ \begin{itemize}
+ \item
+ ここも2-3コマ目に表示される
+ \onslide+<4->
+ \item
+ ここは4枚目以降に表示される
+ \end{itemize}
+ ここは4枚目以降に表示される
+ \onslide
+ ここはすべてのスライドで表示される
+ \end{frame}
+ 
+\begin{frame}{Another Title With Uppercased Words}
+	Text
+	\begin{alertblock}{A highlighted block}
+		Some important information put into a block.
+	\end{alertblock}
+\end{frame}
+
+\subsection{Another subsection}
+\begin{frame}{Informative Title}
+	\begin{exampleblock}{An example}
+		An example within a block.
+	\end{exampleblock}
+	Explanation follows.
+\end{frame}
+
+\section{Summary}
+\begin{frame}{Summary}
+	\begin{itemize}
+		\item Our \alert{main point}
+		\item The \alert{second main point}
+	\end{itemize}
+	\vfill
+	\begin{block}{Outlook}
+		Further ideas here.
+	\end{block}
+\end{frame}
+
+\end{document}

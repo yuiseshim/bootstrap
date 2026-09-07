@@ -1,0 +1,26 @@
+#!/bin/bash
+
+BUILD_DIR="build"
+
+mkdir -p "$BUILD_DIR"
+
+FILE="$1"
+BASE="$(basename "$FILE" .tex)"
+
+uplatex \
+  -synctex=1 \
+  -file-line-error \
+  -interaction=nonstopmode \
+  -output-directory="$BUILD_DIR" \
+  "$FILE"
+
+uplatex \
+  -synctex=1 \
+  -file-line-error \
+  -interaction=nonstopmode \
+  -output-directory="$BUILD_DIR" \
+  "$FILE"
+
+dvipdfmx \
+  -o "$BASE.pdf" \
+  "$BUILD_DIR/$BASE.dvi"

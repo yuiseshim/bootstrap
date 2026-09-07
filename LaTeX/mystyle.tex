@@ -1,0 +1,170 @@
+% Core packages for Beamer slides, Japanese hyperlinks, figures, tables, and diagrams.
+\usepackage{bxdpx-beamer}
+\usepackage{pxjahyper}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage[normalem]{ulem}
+\usepackage{listings}
+\usepackage{csquotes}
+\usepackage{ifthen}
+
+\lstset{
+  basicstyle=\ttfamily\tiny,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{black!5},
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!50!black},
+  stringstyle=\color{red}
+}
+
+% Define new command for quoting text with double quotes.
+\newcommand{\qbox}[1]{\mbox{`#1'}}
+\newcommand{\qqbox}[1]{\mbox{``#1''}}
+
+% original \href  -> \oldhref
+\let\oldhref\href
+% renewcommand \href 
+\renewcommand{\href}[2]{%
+  \oldhref{#1}{\textcolor{blue}{\underline{#2}}}%
+}
+% Make arXiv links blue and underlined
+\newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{arXiv:#1}}
+
+
+% Footnote setup: dagger-style labels and compact formatting for Beamer slides.
+\newcounter{presentationfootnote}
+\renewcommand{\thefootnote}{\mbox{$\dagger$}\arabic{footnote}}
+\renewcommand{\thempfootnote}{\mbox{$\dagger$}\arabic{mpfootnote}}
+\renewcommand{\thepresentationfootnote}{\mbox{$\dagger$}\arabic{presentationfootnote}}
+\setbeamertemplate{footnote mark}{\textsuperscript{\insertfootnotemark}}
+
+% Format the footnote body with a compact label column and left-aligned text.
+\setbeamertemplate{footnote}{%
+  \parindent 0pt%
+  \noindent%
+  \raggedright%
+  \hbox to 1.3em{\hfil\insertfootnotemark}%
+  \insertfootnotetext\par%
+}
+
+% Redefine Beamer footnotes so dagger-style labels also work with overlay syntax.
+\makeatletter
+\renewcommand<>{\footnote}[1][]{%
+  \let\beamer@footnotetext=\@footnotetext%
+  \let\beamer@mpfn=\@mpfn%
+  \let\beamer@thempfn=\thempfn%
+  \let\beamer@kvorig=\KV@errx%
+  \let\beamer@xkvorig=\XKV@err
+  \def\beamer@footarg{}%
+  \def\KV@errx##1{\edef\beamer@footarg{\@tempa}}%
+  \def\XKV@err##1{\edef\beamer@footarg{\XKV@tkey}}%
+  \ifbeamer@framefootnotes
+    \setkeys{beamerfootnote}{frame,#1}%
+  \else
+    \setkeys{beamerfootnote}{#1}%
+  \fi
+  \let\KV@errx=\beamer@kvorig%
+  \let\XKV@errx=\beamer@xkvorig
+  \ifx\beamer@footarg\@empty%
+    \def\beamer@next{\stepcounter{presentationfootnote}%
+      \protected@xdef\@thefnmark{\thepresentationfootnote}%
+      \@footnotemark\beamer@footnotetext#2}%
+  \else%
+    \def\beamer@next{%
+      \begingroup
+        \unrestored@protected@xdef\@thefnmark{\mbox{$\dagger$}\beamer@footarg}%
+      \endgroup
+      \@footnotemark\beamer@footnotetext#2}%
+  \fi%
+  \beamer@next}
+\makeatother
+
+% Base theme: keep the deck simple and hide default navigation icons.
+\usetheme{default}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+
+% Footer: page number shown slightly above the bottom-right corner.
+\setbeamertemplate{footline}{
+  \leavevmode
+  \hbox to \paperwidth{%
+    \hfill
+    \raisebox{0.95em}[0pt][0pt]{%
+      \usebeamerfont{page number in head/foot}%
+      \usebeamercolor[fg]{page number in head/foot}%
+      \color{white}%
+      \insertframenumber\,/\,\inserttotalframenumber\hspace{0.8em}%
+    }%
+  }
+}
+
+% Frame title style.
+\setbeamercolor{frametitle}{fg=darkgray}
+\setbeamerfont{frametitle}{series=\bfseries,size=\Large}
+
+% Caption formatting.
+\renewcommand{\figurename}{Figure}
+\setbeamercolor{caption name}{fg=black}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setlength{\abovecaptionskip}{-3pt}
+\setlength{\belowcaptionskip}{0pt}
+
+% Clickable paper-source link helper used near the frame title.
+\newcommand{\sourcelink}[2]{\oldhref{#2}{\textcolor{blue!65!black}{\uline{\texttt{#1}}}}}
+
+% Custom frame title with separator rule and top-right paper reference.
+\setbeamertemplate{frametitle}{
+  \begin{flushleft}
+    \vspace{0.01em}
+    \hspace{0.1cm}\insertframetitle\par
+    \vspace{0.07em}
+    \hrule width 0.89\linewidth
+    \vspace{-0.2em}
+  \end{flushleft}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east, inner sep=0pt] at ([xshift=-0.55cm,yshift=-1.13cm]current page.north east)
+      {\scriptsize\normalfont\ifcsname papersource\endcsname\papersource\fi};
+  \end{tikzpicture}
+  \vspace{0.55em}
+}
+
+% Block appearance for normal, example, and alert emphasis.
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercolor{block title}{fg=white,bg=blue!55!black}
+\setbeamercolor{block body}{fg=black,bg=blue!6}
+\setbeamercolor{block title example}{fg=white,bg=green!39!black}
+\setbeamercolor{block body example}{fg=black,bg=green!10}
+\setbeamercolor{block title alerted}{fg=white,bg=red!70!black}
+\setbeamercolor{block body alerted}{fg=black,bg=orange!10}
+\setbeamercolor{block title code}{fg=white,bg=gray!60!black}
+\setbeamercolor{block body code}{fg=black,bg=gray!10}
+
+% Define confidential. 
+\newcommand{\confidentialstamp}[1][en]{%
+  \ifthenelse{\equal{#1}{ja}}{%
+    \def\confidentialtext{社外秘}%
+  }{%
+    %\def\confidentialtext{CONFIDENTIAL}%
+    \def\confidentialtext{\resizebox{1.1cm}{0.2cm}{CONFIDENTIAL}}%
+  }%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[
+      anchor=north west,
+      draw=red!75!black,
+      text=red!75!black,
+      line width=1.2pt,
+      rounded corners=1pt,
+      inner xsep=1pt,
+      inner ysep=1pt,
+      font=\bfseries\scriptsize,
+      rotate=+13, 
+      opacity=0.9
+    ] at ([xshift=0.5mm,yshift=-2.9mm]current page.north west)
+    {\confidentialtext};
+  \end{tikzpicture}%
+}

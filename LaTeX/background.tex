@@ -1,0 +1,47 @@
+%%% 背景
+\setbeamercolor{background canvas}{bg=black!19}% ベースカラー
+\addtobeamertemplate{background canvas}{}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    % 左下の帯
+    \fill[color=black!95] (current page.south west) rectangle ([yshift=0.37cm]current page.south east);
+  \end{tikzpicture}
+  \begin{tikzpicture}[remember picture,overlay]
+    % 左下にテキスト
+    \node[
+      anchor=south west,
+      inner sep=-0.1pt,
+      font=\small\color{white}
+    ] at (current page.south west) {
+      \ifdefined\companyname{\bf\companyname}\fi
+    };
+    
+    % 左中にテキストA
+    \node[
+      anchor=south west,
+      inner sep=2.6pt,
+      font=\small\color{white}
+    ] at ([xshift=0.29\textwidth]current page.south west) {
+      \ifdefined\textA{\tiny\textA}\fi
+    };
+    
+    % 左中にテキストB
+    \node[
+      anchor=south west,
+      inner sep=2.6pt,
+      font=\small\color{white}
+    ] at ([xshift=0.69\textwidth]current page.south west) {
+      \ifdefined\textB{\tiny\textB}\fi
+    };
+    
+    % 右上に画像
+    \node[
+      anchor=north east,
+      inner sep=-5pt
+    ] at (current page.north east) {
+      \IfFileExists{./logo.png}{%
+        \includegraphics[height=0.9cm]{./logo.png}
+      }{}
+  };
+  \end{tikzpicture}
+  \confidentialstamp[en]
+}
