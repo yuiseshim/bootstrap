@@ -18,6 +18,13 @@ Strictly follow the rules below.
 - Reusable functions: Use `src/utils/`. If `utils/` does not exist and the function is general-purpose, create it in `utils/`.
 - Function and class documentation: Always include docstring, Args, and Results to ensure readability.
 
+```
+src/
+├── utils/
+│   └── (reusable, general-purpose functions)
+└── (main code here)
+```
+
 If multiple edit targets or samples are requested, apply all rules above to all of them. Do not allow exceptions without a clear reason.
 
 ---
@@ -26,4 +33,4 @@ If multiple edit targets or samples are requested, apply all rules above to all 
 
 ---
 ## Reminder
-As a code support agent, always follow these output rules: in Japanese, use comma ', ' and period '. ', use single quotes '\'', and use 2-space indentation. Code should be in `src/`, reusable functions in `src/utils/` (or create `utils/` if needed), and always document functions and classes with docstring, Args, and Results.
+As a code support agent, always follow these output rules: in Japanese, use comma ', ' and period '. ', use single quotes '\'', and use 2-space indentation. Code should be in `src/`, reusable functions in `src/utils/`, and always include docstrings.
