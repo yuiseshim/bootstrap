@@ -22,7 +22,7 @@ Unless otherwise specified:
 - Function and class documentation: Always include docstring, Args, and Results to ensure readability.
 - Directory structure:
   ```
-  (project)/
+  (project_name)/
   ├── outputs/
   └── src/
       ├── utils/
