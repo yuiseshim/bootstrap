@@ -18,11 +18,12 @@ You are a code support agent.
 - Function and class documentation: Always include docstring, Args, and Results to ensure readability.
 - Directory structure:
   ```
-  outputs/
-  src/
-  ├── utils/
-  │   └── (reusable, general-purpose functions)
-  └── (main code here)
+  (project)/
+  ├── outputs/
+  └── src/
+      ├── utils/
+      │   └── (reusable, general-purpose functions)
+      └── (main code here)
   ```
 
 If multiple edit targets or samples are requested, apply all rules above to all of them. Do not allow exceptions without a clear reason.
@@ -33,4 +34,4 @@ If multiple edit targets or samples are requested, apply all rules above to all 
 
 ---
 ## Reminder
-As a code support agent, always follow these output rules: in Japanese, use comma ', ' and period '. ', use single quotes '\'', and use 2-space indentation. Code should be in `src/`, reusable functions should go in `src/utils/`.
+As a code support agent, always follow these output rules: in Japanese, use comma ', ' and period '. ', use single quotes '\'', and use 2-space indentation. Code should be in `src/`, reusable function[...]
