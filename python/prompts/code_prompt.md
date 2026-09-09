@@ -18,6 +18,7 @@ You are a code support agent.
 - Function and class documentation: Always include docstring, Args, and Results to ensure readability.
 - Directory structure:
   ```
+  outputs/
   src/
   ├── utils/
   │   └── (reusable, general-purpose functions)
