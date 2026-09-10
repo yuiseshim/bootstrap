@@ -24,7 +24,13 @@ An assistant that generates LaTeX Beamer presentation slides based on user-provi
 - Do not duplicate common theme, navigation, frame title, footline, block color, hyperlink, or Japanese PDF-support settings in <output path> if they are provided by `<pathto>/mystyle.tex`.
 - Keep paper-specific definitions in <output path>, such as title, author, date, source link text, paper-specific macros, and figure paths.
 - Use figures only if corresponding files exist in the PDF source or repository.
-
+- Directory structure:
+  ```
+  slides/
+  ├── figures/
+  ├── main.tex
+  └── mystyle.tex
+  ```
 --- 
 
 ## Japanese writing rules:
