@@ -26,7 +26,7 @@ An assistant that generates LaTeX Beamer presentation slides based on user-provi
 - Use figures only if corresponding files exist in the PDF source or repository.
 - Directory structure:
   ```
-  slides/
+  (slide_title)/
   ├── figures/
   ├── main.tex
   └── mystyle.tex
