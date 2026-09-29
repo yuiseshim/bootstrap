@@ -5,7 +5,8 @@ cp AquaSKK/* $HOME/Library/Application Support/AquaSKK
 
 # 一般辞書ダウンロード
 ```
-./skk-jisho.sh
+cd $HOME/Library/Application Support/AquaSKK
+./skk_jisyo.sh
 ```
 
 # 入力候補を以下のとおりとする. 
