@@ -1,6 +1,6 @@
 # 設定
 ```
-cp AquaSKK/* $HOME/Library/Application Support/AquaSKK
+cp AquaSKK/* $HOME/Library/Application Support/AquaSKK/
 ```
 
 # 一般辞書ダウンロード
