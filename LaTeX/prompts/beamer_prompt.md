@@ -28,6 +28,7 @@ An assistant that generates LaTeX Beamer presentation slides based on user-provi
   ```
   (slide_title)/
   ├── figures/
+  ├── _tmp/
   ├── main.tex
   └── mystyle.tex
   ```
