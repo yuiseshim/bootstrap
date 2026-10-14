@@ -1,0 +1,91 @@
+{
+    "workbench.colorTheme": "Dark Modern",
+    "editor.tabSize": 2,
+    "files.autoSave": "onFocusChange",
+    "claudeCode.preferredLocation": "panel",
+    "remote.SSH.useExecServer": false,
+    "remote.SSH.useLocalServer": false,
+    "remote.SSH.remotePlatform": {
+        "tokyo": "linux",
+        "hpc": "linux"
+    },
+    "gitlens.ai.model": "gitkraken",
+    "gitlens.ai.gitkraken.model": "gemini:gemini-2.5-flash",
+    "chat.editing.confirmEditRequestRetry": false,
+
+    // 通常ファイルの編集は自動承認し、機密・重要設定は確認する
+    "chat.tools.edits.autoApprove": {
+        "**/*": true,
+        "**/.env": false,
+        "**/.env.*": false,
+        "**/.vscode/*.json": false,
+        "**/.github/workflows/*": false,
+        "**/*.pem": false,
+        "**/*.key": false,
+        "**/*.p12": false,
+        "**/*.pfx": false
+    },
+    "chat.checkpoints.showFileChanges": true,
+
+    "chat.tools.terminal.enableAutoApprove": true,
+
+    "chat.tools.terminal.autoApprove": {
+        // Git: 参照系
+        "/^git (status|diff|log|show|branch)\\b.*$/": true,
+
+        // テスト
+        "/^pytest\\b.*$/": true,
+
+        // ファイル・ディレクトリ参照
+        "ls": true,
+        "pwd": true,
+        "cat": true,
+        "head": true,
+        "tail": true,
+        "grep": true,
+        "rg": true,
+        "file": true,
+        "wc": true,
+        "diff": true,
+        "cmp": true,
+        "stat": true,
+        "which": true,
+        "ps": true,
+        "pgrep": true,
+
+        // LaTeXのコンパイル・途中確認
+        "latex": true,
+        "platex": true,
+        "latexmk": true,
+        "dvipdf": true,
+        "dvipdfmx": true,
+        "dvips": true,
+        "dvisvgm": true,
+        "bibtex": true,
+        "pbibtex": true,
+        "upbibtex": true,
+        "biber": true,
+        "makeindex": true,
+        "mendex": true,
+        "makeglossaries": true,
+        "chktex": true,
+        "lacheck": true,
+        "kpsewhich": true,
+        "texfot": true,
+        "pdfinfo": true,
+        "pdffonts": true,
+        "pdftotext": true,
+
+        // Pythonの構文コンパイルのみ許可（任意のPython実行は許可しない）
+        "/^python(?:3(?:\\.\\d+)?)?\\s+-m\\s+(?:py_compile|compileall)\\b.*$/": true,
+
+        // 危険性のある操作は必ず確認
+        "rm": false,
+        "rmdir": false,
+        "sudo": false,
+        "chmod": false,
+        "chown": false,
+        "curl": false,
+        "wget": false
+    }
+}
