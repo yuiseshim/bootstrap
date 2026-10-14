@@ -52,6 +52,7 @@
         "which": true,
         "ps": true,
         "pgrep": true,
+        "true": true,
 
         // LaTeXのコンパイル・途中確認
         "latex": true,
