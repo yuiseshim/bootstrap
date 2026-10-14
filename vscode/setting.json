@@ -76,6 +76,8 @@
         "pdfinfo": true,
         "pdffonts": true,
         "pdftotext": true,
+        "pdftoppm": true,
+        "montage": true,
 
         // Pythonの構文コンパイルのみ許可（任意のPython実行は許可しない）
         "/^python(?:3(?:\\.\\d+)?)?\\s+-m\\s+(?:py_compile|compileall)\\b.*$/": true,
