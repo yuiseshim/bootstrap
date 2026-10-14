@@ -105,7 +105,35 @@ alias e='emacs -nw'
 # Ask for sudo once before running brew upgrades, so casks requiring privileges only prompt once.
 alias brew_upgrade='sudo -v && brew update && brew upgrade && brew cleanup && brew autoremove'
 alias brew_cask_upgrade='sudo -v && brew upgrade --cask --greedy && brew cleanup && brew autoremove'
-alias brew_upgrade_all='sudo -v && brew update && brew upgrade && brew cleanup && brew autoremove && brew upgrade --cask --greedy'
+
+brew_upgrade_all() {
+  echo "=== Authenticate sudo ==="
+  sudo -v || return 1
+
+  # Keep sudo authentication alive in the background
+  (
+    while true; do
+      sudo -n -v || exit
+      sleep 180
+    done
+  ) &
+  local sudo_pid=$!
+
+  # Stop the background keep-alive process when the function finishes
+  {
+    brew update &&
+    brew upgrade --formula &&
+    brew upgrade --cask --greedy &&
+    brew autoremove &&
+    brew cleanup
+  }
+  local status=$?
+
+  kill "$sudo_pid" 2>/dev/null
+  wait "$sudo_pid" 2>/dev/null
+
+  return "$status"
+}
 
 # ------------------------------------------------------------------------------
 # 9. Optional (commented out)
