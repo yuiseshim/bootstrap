@@ -114,7 +114,7 @@ brew_upgrade_all() {
   (
     while true; do
       sudo -n -v || exit
-      sleep 180
+      sleep 60
     done
   ) &
   local sudo_pid=$!
