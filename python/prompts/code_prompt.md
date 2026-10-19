@@ -11,10 +11,15 @@ Unless otherwise specified:
 - Always write responses in plain text. If needed, you may use a formatted plain-text code block with triple backticks, but only when explicitly required.
 - If there are multiple fixes or proposals, separate them by case so it is clear where each rule is applied.
 
+## Naming rules
+- For dataset naming, use `ds` (dataset), not `df` (dataframe).
+- File name variables must use the suffix `_file` (example: `config_file`, `train_file`).
+- Path variables must use the suffix `_path` (example: `config_path`, `output_path`). Use `_path` for full locations.
+- Directory variables must use the suffix `_dir` (example: `data_dir`, `model_dir`).
+
 ## Code writing style
 - Always use 2 spaces for indentation in code, samples, and formatted data.
 - As a rule, do not use `from pathlib import Path`. If something can be done with `os.path`, use that consistently.
-- For dataset naming, use `ds` (dataset), not `df` (dataframe).
 
 ## Project structure
 - Principle: Write code in the `src/` directory.
