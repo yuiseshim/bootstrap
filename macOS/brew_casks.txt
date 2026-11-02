@@ -1,5 +1,6 @@
 antigravity
 aquaskk
+copilot-cli
 deepl
 emacs
 firealpaca
